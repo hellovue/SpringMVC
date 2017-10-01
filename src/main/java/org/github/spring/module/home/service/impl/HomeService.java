@@ -1,7 +1,7 @@
 package org.github.spring.module.home.service.impl;
 
-import javax.annotation.Resource;
-
+import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.github.spring.annotation.Logger;
 import org.github.spring.base.example.UsersExample;
 import org.github.spring.base.mapper.UsersMapper;
@@ -11,11 +11,9 @@ import org.github.spring.module.home.model.TeacherRestModel;
 import org.github.spring.module.home.service.IHomeService;
 import org.github.spring.restful.JSONReturn;
 import org.github.spring.restful.json.JSONPageReturn;
-
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
-import lombok.val;
+import javax.annotation.Resource;
 
 @Slf4j
 @Service
