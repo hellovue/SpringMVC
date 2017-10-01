@@ -601,16 +601,6 @@
       </dependency>
       <dependency>
         <groupId>org.github.spring</groupId>
-        <artifactId>spring-mvc</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.github.spring</groupId>
-        <artifactId>spring-boot</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.github.spring</groupId>
         <artifactId>module-beans</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -622,21 +612,6 @@
       <dependency>
         <groupId>org.github.spring</groupId>
         <artifactId>module-components</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.github.spring</groupId>
-        <artifactId>spring-main</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.github.spring</groupId>
-        <artifactId>spring-jar</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.github.spring</groupId>
-        <artifactId>module-plugins</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
