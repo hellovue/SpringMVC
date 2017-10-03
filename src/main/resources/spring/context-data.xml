@@ -45,7 +45,7 @@
     <property name="annotationClass" value="org.github.spring.annotation.QueryInterface"/>
   </bean>
 
-  <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
+  <aop:aspectj-autoproxy proxy-target-class="true"/>
 
   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="mysqlDataSource"/>
 
@@ -68,7 +68,7 @@
     </tx:attributes>
   </tx:advice>
 
-  <aop:config proxy-target-class="true" expose-proxy="true">
+  <aop:config proxy-target-class="true">
     <aop:pointcut id="service" expression="execution(* org.github..service.I*Service.*(..))"/>
     <aop:advisor pointcut-ref="service" advice-ref="transactionAdvice"/>
   </aop:config>

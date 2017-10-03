@@ -16,7 +16,7 @@
     <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
   </context:component-scan>
 
-  <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
+  <aop:aspectj-autoproxy proxy-target-class="true"/>
 
   <aop:config>
     <aop:aspect ref="loggerAspect">
