@@ -17,7 +17,7 @@ appender("BACK", RollingFileAppender) {
         totalSizeCap = FileSize.valueOf("10MB")
     }
     encoder(PatternLayoutEncoder) {
-        pattern = "%d [%thread] %-5level %logger{5} - %msg%n"
+        pattern = "%d |%11.11thread| %-5level %25.25logger{5} - %msg%n"
     }
 }
 root(ALL, ["STDOUT"])
