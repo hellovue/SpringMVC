@@ -26,12 +26,12 @@
         p:dataSource-ref="mysqlDataSource"
   />
 
-  <bean id="sqlSessionFactoryBean" class="org.github.spring.component.NaiveSQLSessionFactoryBean">
-    <property name="dataSource" ref="mysqlDataSource"/>
-    <property name="mapperLocations" value="classpath*:sqlmapper/**/*.xml"/>
-    <property name="configLocation" value="classpath:orm/orm-myBatis.xml"/>
-    <property name="globalConfig" ref="globalConfig"/>
-  </bean>
+  <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean"
+        p:dataSource-ref="mysqlDataSource"
+        p:mapperLocations="classpath*:sqlMappers/**/*.xml"
+        p:configLocation="classpath:orm/orm-myBatis.xml"
+        p:globalConfig-ref="globalConfig"
+  />
 
   <bean id="globalConfig" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
     <property name="idType" value="2"/>

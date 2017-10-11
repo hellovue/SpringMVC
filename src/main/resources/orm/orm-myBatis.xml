@@ -26,4 +26,24 @@
     <package name="org.github.spring.base.entity"/>
     <package name="org.github.spring.base.example"/>
   </typeAliases>
+
+  <plugins>
+    <!-- PageHelper -->
+    <plugin interceptor="com.github.pagehelper.PageInterceptor">
+      <!--oracle,mysql,mariadb,sqlite,hsqldb,postgresql,db2,sqlserver,informix,h2,sqlserver2012,derby-->
+      <!--<property name="helperDialect" value="mysql"/>-->
+      <property name="offsetAsPageNum" value="true"/>
+      <property name="rowBoundsWithCount" value="true"/>
+      <property name="pageSizeZero" value="true"/>
+      <property name="reasonable" value="true"/>
+      <!--<property name="pageNum" value="pageNum"/>-->
+      <!--<property name="pageSize" value="pageSize"/>-->
+      <!--<property name="count" value="countSql"/>-->
+      <!--<property name="reasonable" value="reasonable"/>-->
+      <!--<property name="pageSizeZero" value="pageSizeZero"/>-->
+      <!--<property name="supportMethodsArguments" value="true"/>-->
+      <property name="autoRuntimeDialect" value="true"/>
+      <property name="closeConn" value="true"/>
+    </plugin>
+  </plugins>
 </configuration>
