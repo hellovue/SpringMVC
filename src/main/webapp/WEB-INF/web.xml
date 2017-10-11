@@ -11,16 +11,8 @@
 
   <context-param>
     <param-name>spring.profiles.active</param-name>
-    <!-- dev,qa,pro -->
-    <param-value>dev</param-value>
-  </context-param>
-  <context-param>
-    <param-name>spring.profiles.default</param-name>
-    <param-value>dev</param-value>
-  </context-param>
-  <context-param>
-    <param-name>spring.liveBeansView.mbeanDomain</param-name>
-    <param-value>dev</param-value>
+    <!-- dev,pro,qa,sup,plu -->
+    <param-value>dev,sup,plu</param-value>
   </context-param>
 
   <context-param>
