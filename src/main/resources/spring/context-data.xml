@@ -41,8 +41,8 @@
 
   <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
     <property name="basePackage" value="org.github"/>
-    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
-    <property name="annotationClass" value="org.github.spring.annotation.QueryInterface"/>
+    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    <property name="annotationClass" value="org.github.spring.annotation.QueryMapper"/>
   </bean>
 
   <aop:aspectj-autoproxy proxy-target-class="true"/>

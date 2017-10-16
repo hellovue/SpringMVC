@@ -13,13 +13,13 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.exceptions.TooManyResultsException;
-import org.github.spring.annotation.QueryInterface;
+import org.github.spring.annotation.QueryMapper;
 import org.github.spring.base.entity.ResponseSecEntity;
 import org.github.spring.base.example.ResponseSecExample;
 import org.github.spring.base.key.ResponseSecKey;
 import org.github.spring.footstone.MyBatisMapper;
 
-@QueryInterface
+@QueryMapper
 public interface ResponseSecMapper extends MyBatisMapper {
   long countByExample(ResponseSecExample example);
 

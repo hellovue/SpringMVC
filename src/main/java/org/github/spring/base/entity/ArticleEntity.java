@@ -12,7 +12,7 @@ import org.github.spring.base.key.ArticleKey;
  * ArticleEntity [ sampledb.article ].
  *
  * @author MyBatisGenerator
- * @version 2017-09-21
+ * @version 2017-10-14
  */
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("serial")
@@ -38,7 +38,7 @@ public class ArticleEntity extends ArticleKey implements Serializable {
   /** count1 [ article.count1 ]. */
   private Integer count1;
 
-  /** flag [ article.flag ]. */
+  /** type [ article.type ]. */
   private String type;
 
   /** notice [ article.notice ]. */
@@ -251,7 +251,7 @@ public class ArticleEntity extends ArticleKey implements Serializable {
   }
 
   /**
-   * GET flag [ article.flag ].
+   * GET type [ article.type ].
    *
    * @return java.lang.String
    */
@@ -260,7 +260,7 @@ public class ArticleEntity extends ArticleKey implements Serializable {
   }
 
   /**
-   * WITH flag [ article.flag ].
+   * WITH type [ article.type ].
    *
    * @param type java.lang.String
    * @return org.github.spring.base.entity.ArticleEntity
@@ -271,7 +271,7 @@ public class ArticleEntity extends ArticleKey implements Serializable {
   }
 
   /**
-   * SET flag [ article.flag ].
+   * SET type [ article.type ].
    *
    * @param type java.lang.String
    */

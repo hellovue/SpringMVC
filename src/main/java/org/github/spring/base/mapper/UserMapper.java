@@ -13,13 +13,13 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.exceptions.TooManyResultsException;
-import org.github.spring.annotation.QueryInterface;
+import org.github.spring.annotation.QueryMapper;
 import org.github.spring.base.entity.UserEntity;
 import org.github.spring.base.example.UserExample;
 import org.github.spring.base.key.UserKey;
 import org.github.spring.footstone.MyBatisMapper;
 
-@QueryInterface
+@QueryMapper
 public interface UserMapper extends MyBatisMapper {
   long countByExample(UserExample example);
 

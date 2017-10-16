@@ -1,18 +1,23 @@
 package org.github.spring.module.home.action;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 
 import org.github.spring.annotation.Invoke;
 import org.github.spring.base.AbstractAction;
 import org.github.spring.common.constant.HTMLPageEnum;
 import org.github.spring.module.home.model.TeacherCondModel;
 import org.github.spring.module.home.service.IHomeService;
+import org.github.spring.restful.FileReturn;
+import org.github.spring.restful.JSONReturn;
 import org.github.spring.restful.MultiFileReturn;
 import org.github.spring.restful.Returnable;
+import org.github.spring.restful.json.JSONArrayReturn;
 import org.github.spring.restful.json.JSONPReturn;
 
 import org.springframework.stereotype.Controller;
@@ -33,23 +38,16 @@ public class HomeAction extends AbstractAction {
   private IHomeService homeService;
 
   /**
-   * home.
-   *
-   * @return VIEWReturn
-   */
-  @GetMapping
-  public Returnable home() {
-    return HTMLPageEnum.HOME;
-  }
-
-  /**
-   * search.
+   * format.
    *
    * @return JSONReturn
    */
-  @GetMapping("ssm")
-  public Returnable search(TeacherCondModel condModel) {
-    return homeService.search(condModel);
+  @GetMapping("export")
+  public Returnable export(TeacherCondModel condModel) {
+    val origin = ((JSONArrayReturn) this.search(condModel)).toList();
+    val titles = Arrays.asList("title1", "title2", "title3");
+    val fields = Arrays.asList("username", "password", "question");
+    return FileReturn.of("demo", titles, fields, origin);
   }
 
   /**
@@ -63,16 +61,6 @@ public class HomeAction extends AbstractAction {
   }
 
   /**
-   * lambda.
-   *
-   * @return JSONReturn
-   */
-  @PostMapping("lambda")
-  public Returnable lambda(@Invoke Map<String, Object> param) {
-    return Returnable.of(param.toString());
-  }
-
-  /**
    * holder.
    *
    * @return JSONReturn
@@ -80,5 +68,35 @@ public class HomeAction extends AbstractAction {
   @GetMapping("jsonp")
   public Returnable holder(String name) {
     return JSONPReturn.of("bilibili", "JYD_XL", 1, 2, 3, name);
+  }
+
+  /**
+   * home.
+   *
+   * @return VIEWReturn
+   */
+  @GetMapping
+  public Returnable home() {
+    return HTMLPageEnum.HOME;
+  }
+
+  /**
+   * lambda.
+   *
+   * @return JSONReturn
+   */
+  @PostMapping("lambda")
+  public Returnable lambda(@Invoke Map<String, Object> param) {
+    return JSONReturn.of(param);
+  }
+
+  /**
+   * search.
+   *
+   * @return JSONReturn
+   */
+  @GetMapping("ssm")
+  public Returnable search(TeacherCondModel condModel) {
+    return homeService.search(condModel);
   }
 }

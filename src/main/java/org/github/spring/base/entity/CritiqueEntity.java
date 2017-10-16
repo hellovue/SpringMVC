@@ -12,7 +12,7 @@ import org.github.spring.base.key.CritiqueKey;
  * CritiqueEntity [ sampledb.critique ].
  *
  * @author MyBatisGenerator
- * @version 2017-09-21
+ * @version 2017-10-14
  */
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("serial")
@@ -32,7 +32,7 @@ public class CritiqueEntity extends CritiqueKey implements Serializable {
   /** photo [ critique.photo ]. */
   private String photo;
 
-  /** flag [ critique.flag ]. */
+  /** type [ critique.type ]. */
   private String type;
 
   /** notice [ critique.notice ]. */
@@ -184,7 +184,7 @@ public class CritiqueEntity extends CritiqueKey implements Serializable {
   }
 
   /**
-   * GET flag [ critique.flag ].
+   * GET type [ critique.type ].
    *
    * @return java.lang.String
    */
@@ -193,7 +193,7 @@ public class CritiqueEntity extends CritiqueKey implements Serializable {
   }
 
   /**
-   * WITH flag [ critique.flag ].
+   * WITH type [ critique.type ].
    *
    * @param type java.lang.String
    * @return org.github.spring.base.entity.CritiqueEntity
@@ -204,7 +204,7 @@ public class CritiqueEntity extends CritiqueKey implements Serializable {
   }
 
   /**
-   * SET flag [ critique.flag ].
+   * SET type [ critique.type ].
    *
    * @param type java.lang.String
    */

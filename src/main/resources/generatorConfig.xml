@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-  <properties resource="property/profile/dev.properties"/>
+  <properties resource="properties/profiles/dev.properties"/>
 
   <context id="mysql-sampledb" defaultModelType="hierarchical" targetRuntime="MyBatis3" introspectedColumnImpl="org.github.spring.mybatis.generator.NaiveIntrospectedColumn">
     <property name="dataBaseName" value="sampledb"/>
@@ -22,7 +22,7 @@
     <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>
     <plugin type="com.freetmp.mbg.plugin.upsert.MySqlUpsertPlugin"/>
     <plugin type="com.google.code.mybatis.generator.plugins.CriteriaBuilderPlugin"/>
-    <plugin type="org.github.spring.mybatis.generator.QueryInterfacePlugin"/>
+    <plugin type="org.github.spring.mybatis.generator.QueryMapperPlugin"/>
     <plugin type="org.github.spring.mybatis.generator.SqlMapperXMLOverridePlugin"/>
     <plugin type="org.github.spring.mybatis.generator.MethodInOptimizationPlugin"/>
     <plugin type="org.github.spring.mybatis.generator.MethodBetweenOptimizationPlugin"/>

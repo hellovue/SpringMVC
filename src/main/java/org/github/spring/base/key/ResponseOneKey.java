@@ -12,7 +12,7 @@ import org.github.spring.footstone.AbstractEntity;
  * ResponseOneKey [ sampledb.t_response_one ].
  *
  * @author MyBatisGenerator
- * @version 2017-09-21
+ * @version 2017-10-14
  */
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("serial")

@@ -1,19 +1,20 @@
 package org.github.spring.base;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import org.github.spring.footstone.ConstInterface;
+
 import org.github.spring.footstone.JSONMapperHolder;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /** 错误信息统一处理. */
 @Slf4j
-public class GlobalExceptionResolver implements ConstInterface, HandlerExceptionResolver {
+public class GlobalExceptionResolver implements HandlerExceptionResolver {
   @ResponseBody
   public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
     log.error("访问" + request.getRequestURI() + " 发生错误, 错误信息:" + ex.getMessage());

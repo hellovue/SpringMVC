@@ -13,7 +13,7 @@ import org.github.spring.base.key.SourceKey;
  * SourceEntity [ sampledb.t_source ].
  *
  * @author MyBatisGenerator
- * @version 2017-09-21
+ * @version 2017-10-14
  */
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("serial")
@@ -24,7 +24,7 @@ public class SourceEntity extends SourceKey implements Serializable {
   /** 标题 [ t_source.title ]. */
   private String title;
 
-  /** 类型 [ t_source.flag ]. */
+  /** 类型 [ t_source.type ]. */
   private String type;
 
   /** 描述信息 [ t_source.sdecotation ]. */
@@ -95,7 +95,7 @@ public class SourceEntity extends SourceKey implements Serializable {
   }
 
   /**
-   * GET 类型 [ t_source.flag ].
+   * GET 类型 [ t_source.type ].
    *
    * @return java.lang.String
    */
@@ -104,7 +104,7 @@ public class SourceEntity extends SourceKey implements Serializable {
   }
 
   /**
-   * WITH 类型 [ t_source.flag ].
+   * WITH 类型 [ t_source.type ].
    *
    * @param type java.lang.String
    * @return org.github.spring.base.entity.SourceEntity
@@ -115,7 +115,7 @@ public class SourceEntity extends SourceKey implements Serializable {
   }
 
   /**
-   * SET 类型 [ t_source.flag ].
+   * SET 类型 [ t_source.type ].
    *
    * @param type java.lang.String
    */

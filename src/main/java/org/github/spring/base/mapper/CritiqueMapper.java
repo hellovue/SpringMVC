@@ -13,13 +13,13 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.exceptions.TooManyResultsException;
-import org.github.spring.annotation.QueryInterface;
+import org.github.spring.annotation.QueryMapper;
 import org.github.spring.base.entity.CritiqueEntity;
 import org.github.spring.base.example.CritiqueExample;
 import org.github.spring.base.key.CritiqueKey;
 import org.github.spring.footstone.MyBatisMapper;
 
-@QueryInterface
+@QueryMapper
 public interface CritiqueMapper extends MyBatisMapper {
   long countByExample(CritiqueExample example);
 
@@ -34,10 +34,10 @@ public interface CritiqueMapper extends MyBatisMapper {
   @Insert({
     "insert into sampledb.critique (id, article_id, ",
     "content, `name`, `time`, ",
-    "photo, `flag`, notice)",
+    "photo, `type`, notice)",
     "values (#{id,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, ",
     "#{content,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, ",
-    "#{photo,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, #{notice,jdbcType=VARCHAR})"
+    "#{photo,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{notice,jdbcType=VARCHAR})"
   })
   int insert(CritiqueEntity record);
 
@@ -47,7 +47,7 @@ public interface CritiqueMapper extends MyBatisMapper {
 
   @Select({
     "select",
-    "id, article_id, content, `name`, `time`, photo, `flag`, notice",
+    "id, article_id, content, `name`, `time`, photo, `type`, notice",
     "from sampledb.critique",
     "where id = #{id,jdbcType=INTEGER}"
   })
@@ -67,7 +67,7 @@ public interface CritiqueMapper extends MyBatisMapper {
       "`name` = #{name,jdbcType=VARCHAR},",
       "`time` = #{time,jdbcType=VARCHAR},",
       "photo = #{photo,jdbcType=VARCHAR},",
-      "`flag` = #{flag,jdbcType=VARCHAR},",
+      "`type` = #{type,jdbcType=VARCHAR},",
       "notice = #{notice,jdbcType=VARCHAR}",
     "where id = #{id,jdbcType=INTEGER}"
   })

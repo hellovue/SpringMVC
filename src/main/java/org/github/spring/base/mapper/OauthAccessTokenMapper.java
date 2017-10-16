@@ -9,13 +9,13 @@ import javax.annotation.Nullable;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.exceptions.TooManyResultsException;
-import org.github.spring.annotation.QueryInterface;
+import org.github.spring.annotation.QueryMapper;
 import org.github.spring.base.blob.OauthAccessTokenWithBLOBs;
 import org.github.spring.base.entity.OauthAccessTokenEntity;
 import org.github.spring.base.example.OauthAccessTokenExample;
 import org.github.spring.footstone.MyBatisMapper;
 
-@QueryInterface
+@QueryMapper
 public interface OauthAccessTokenMapper extends MyBatisMapper {
   long countByExample(OauthAccessTokenExample example);
 

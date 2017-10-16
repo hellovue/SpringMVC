@@ -12,7 +12,7 @@ import org.github.spring.base.key.PhotoKey;
  * PhotoEntity [ sampledb.photo ].
  *
  * @author MyBatisGenerator
- * @version 2017-09-21
+ * @version 2017-10-14
  */
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("serial")
@@ -26,7 +26,7 @@ public class PhotoEntity extends PhotoKey implements Serializable {
   /** content [ photo.content ]. */
   private String content;
 
-  /** flag [ photo.flag ]. */
+  /** type [ photo.type ]. */
   private String type;
 
   /** notice [ photo.notice ]. */
@@ -126,7 +126,7 @@ public class PhotoEntity extends PhotoKey implements Serializable {
   }
 
   /**
-   * GET flag [ photo.flag ].
+   * GET type [ photo.type ].
    *
    * @return java.lang.String
    */
@@ -135,7 +135,7 @@ public class PhotoEntity extends PhotoKey implements Serializable {
   }
 
   /**
-   * WITH flag [ photo.flag ].
+   * WITH type [ photo.type ].
    *
    * @param type java.lang.String
    * @return org.github.spring.base.entity.PhotoEntity
@@ -146,7 +146,7 @@ public class PhotoEntity extends PhotoKey implements Serializable {
   }
 
   /**
-   * SET flag [ photo.flag ].
+   * SET type [ photo.type ].
    *
    * @param type java.lang.String
    */

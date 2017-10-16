@@ -13,7 +13,7 @@ import org.github.spring.base.key.UserKey;
  * UserEntity [ sampledb.t_user ].
  *
  * @author MyBatisGenerator
- * @version 2017-09-21
+ * @version 2017-10-14
  */
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("serial")

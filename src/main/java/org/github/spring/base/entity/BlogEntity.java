@@ -13,7 +13,7 @@ import org.github.spring.base.key.BlogKey;
  * BlogEntity [ sampledb.t_blog ].
  *
  * @author MyBatisGenerator
- * @version 2017-09-21
+ * @version 2017-10-14
  */
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("serial")
@@ -27,7 +27,7 @@ public class BlogEntity extends BlogKey implements Serializable {
   /** 作者 [ t_blog.author ]. */
   private String author;
 
-  /** 文章类型（原创、转载） [ t_blog.flag ]. */
+  /** 文章类型（原创、转载） [ t_blog.type ]. */
   private String type;
 
   /** 转载地址 [ t_blog.loadURL ]. */
@@ -136,7 +136,7 @@ public class BlogEntity extends BlogKey implements Serializable {
   }
 
   /**
-   * GET 文章类型（原创、转载） [ t_blog.flag ].
+   * GET 文章类型（原创、转载） [ t_blog.type ].
    *
    * @return java.lang.String
    */
@@ -145,7 +145,7 @@ public class BlogEntity extends BlogKey implements Serializable {
   }
 
   /**
-   * WITH 文章类型（原创、转载） [ t_blog.flag ].
+   * WITH 文章类型（原创、转载） [ t_blog.type ].
    *
    * @param type java.lang.String
    * @return org.github.spring.base.entity.BlogEntity
@@ -156,7 +156,7 @@ public class BlogEntity extends BlogKey implements Serializable {
   }
 
   /**
-   * SET 文章类型（原创、转载） [ t_blog.flag ].
+   * SET 文章类型（原创、转载） [ t_blog.type ].
    *
    * @param type java.lang.String
    */

@@ -13,13 +13,13 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.exceptions.TooManyResultsException;
-import org.github.spring.annotation.QueryInterface;
+import org.github.spring.annotation.QueryMapper;
 import org.github.spring.base.entity.PhotoEntity;
 import org.github.spring.base.example.PhotoExample;
 import org.github.spring.base.key.PhotoKey;
 import org.github.spring.footstone.MyBatisMapper;
 
-@QueryInterface
+@QueryMapper
 public interface PhotoMapper extends MyBatisMapper {
   long countByExample(PhotoExample example);
 
@@ -33,10 +33,10 @@ public interface PhotoMapper extends MyBatisMapper {
 
   @Insert({
     "insert into sampledb.photo (id, image, ",
-    "note, content, `flag`, ",
+    "note, content, `type`, ",
     "notice, `time`, album_id)",
     "values (#{id,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR}, ",
-    "#{note,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, ",
+    "#{note,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, ",
     "#{notice,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, #{albumId,jdbcType=INTEGER})"
   })
   int insert(PhotoEntity record);
@@ -47,7 +47,7 @@ public interface PhotoMapper extends MyBatisMapper {
 
   @Select({
     "select",
-    "id, image, note, content, `flag`, notice, `time`, album_id",
+    "id, image, note, content, `type`, notice, `time`, album_id",
     "from sampledb.photo",
     "where id = #{id,jdbcType=INTEGER}"
   })
@@ -65,7 +65,7 @@ public interface PhotoMapper extends MyBatisMapper {
     "set image = #{image,jdbcType=VARCHAR},",
       "note = #{note,jdbcType=VARCHAR},",
       "content = #{content,jdbcType=VARCHAR},",
-      "`flag` = #{flag,jdbcType=VARCHAR},",
+      "`type` = #{type,jdbcType=VARCHAR},",
       "notice = #{notice,jdbcType=VARCHAR},",
       "`time` = #{time,jdbcType=VARCHAR},",
       "album_id = #{albumId,jdbcType=INTEGER}",

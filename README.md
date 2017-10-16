@@ -1,1 +1,1 @@
-![GitHub](gimp.jpg "CAT")
+![GitHub](theme.jpg "CAT")

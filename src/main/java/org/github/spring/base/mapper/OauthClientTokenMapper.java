@@ -6,31 +6,20 @@ package org.github.spring.base.mapper;
 
 import java.util.List;
 import javax.annotation.Nullable;
-import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.exceptions.TooManyResultsException;
-import org.github.spring.annotation.QueryInterface;
+import org.github.spring.annotation.QueryMapper;
 import org.github.spring.base.blob.OauthClientTokenWithBLOBs;
 import org.github.spring.base.entity.OauthClientTokenEntity;
 import org.github.spring.base.example.OauthClientTokenExample;
-import org.github.spring.base.key.OauthClientTokenKey;
 import org.github.spring.footstone.MyBatisMapper;
 
-@QueryInterface
+@QueryMapper
 public interface OauthClientTokenMapper extends MyBatisMapper {
   long countByExample(OauthClientTokenExample example);
 
   int deleteByExample(OauthClientTokenExample example);
-
-  @Delete({
-    "delete from sampledb.oauth_client_token",
-    "where token_id = #{tokenId,jdbcType=VARCHAR}"
-  })
-  int deleteByPrimaryKey(OauthClientTokenKey key);
 
   @Insert({
     "insert into sampledb.oauth_client_token (token_id, authentication_id, ",
@@ -48,41 +37,11 @@ public interface OauthClientTokenMapper extends MyBatisMapper {
 
   List<OauthClientTokenEntity> selectByExample(OauthClientTokenExample example);
 
-  @Select({
-    "select",
-    "token_id, authentication_id, user_name, client_id, token",
-    "from sampledb.oauth_client_token",
-    "where token_id = #{tokenId,jdbcType=VARCHAR}"
-  })
-  @ResultMap("org.github.spring.base.mapper.OauthClientTokenMapper.ResultMapWithBLOBs")
-  OauthClientTokenWithBLOBs selectByPrimaryKey(OauthClientTokenKey key);
-
   int updateByExampleSelective(@Param("record") OauthClientTokenWithBLOBs record, @Param("example") OauthClientTokenExample example);
 
   int updateByExampleWithBLOBs(@Param("record") OauthClientTokenWithBLOBs record, @Param("example") OauthClientTokenExample example);
 
   int updateByExample(@Param("record") OauthClientTokenEntity record, @Param("example") OauthClientTokenExample example);
-
-  int updateByPrimaryKeySelective(OauthClientTokenWithBLOBs record);
-
-  @Update({
-    "update sampledb.oauth_client_token",
-    "set authentication_id = #{authenticationId,jdbcType=VARCHAR},",
-      "user_name = #{userName,jdbcType=VARCHAR},",
-      "client_id = #{clientId,jdbcType=VARCHAR},",
-      "token = #{token,jdbcType=LONGVARBINARY}",
-    "where token_id = #{tokenId,jdbcType=VARCHAR}"
-  })
-  int updateByPrimaryKeyWithBLOBs(OauthClientTokenWithBLOBs record);
-
-  @Update({
-    "update sampledb.oauth_client_token",
-    "set authentication_id = #{authenticationId,jdbcType=VARCHAR},",
-      "user_name = #{userName,jdbcType=VARCHAR},",
-      "client_id = #{clientId,jdbcType=VARCHAR}",
-    "where token_id = #{tokenId,jdbcType=VARCHAR}"
-  })
-  int updateByPrimaryKey(OauthClientTokenEntity record);
 
   int batchInsert(List<OauthClientTokenEntity> list);
 
@@ -101,7 +60,4 @@ public interface OauthClientTokenMapper extends MyBatisMapper {
 
   @Nullable
   OauthClientTokenWithBLOBs selectByUniqueKeyWithBLOBs(OauthClientTokenEntity record) throws TooManyResultsException;
-
-  @Nullable
-  OauthClientTokenEntity selectByPrimaryKeyWithoutBLOBs(OauthClientTokenKey key);
 }

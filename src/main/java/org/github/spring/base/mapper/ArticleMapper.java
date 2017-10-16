@@ -13,13 +13,13 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.exceptions.TooManyResultsException;
-import org.github.spring.annotation.QueryInterface;
+import org.github.spring.annotation.QueryMapper;
 import org.github.spring.base.entity.ArticleEntity;
 import org.github.spring.base.example.ArticleExample;
 import org.github.spring.base.key.ArticleKey;
 import org.github.spring.footstone.MyBatisMapper;
 
-@QueryInterface
+@QueryMapper
 public interface ArticleMapper extends MyBatisMapper {
   long countByExample(ArticleExample example);
 
@@ -35,12 +35,12 @@ public interface ArticleMapper extends MyBatisMapper {
     "insert into sampledb.article (id, title, ",
     "content, image, ",
     "`time`, editer, `count`, ",
-    "count1, `flag`, notice, ",
+    "count1, `type`, notice, ",
     "keywords)",
     "values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, ",
     "#{content,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, ",
     "#{time,jdbcType=VARCHAR}, #{editer,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, ",
-    "#{count1,jdbcType=INTEGER}, #{flag,jdbcType=VARCHAR}, #{notice,jdbcType=VARCHAR}, ",
+    "#{count1,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{notice,jdbcType=VARCHAR}, ",
     "#{keywords,jdbcType=VARCHAR})"
   })
   int insert(ArticleEntity record);
@@ -51,7 +51,7 @@ public interface ArticleMapper extends MyBatisMapper {
 
   @Select({
     "select",
-    "id, title, content, image, `time`, editer, `count`, count1, `flag`, notice, ",
+    "id, title, content, image, `time`, editer, `count`, count1, `type`, notice, ",
     "keywords",
     "from sampledb.article",
     "where id = #{id,jdbcType=INTEGER}"
@@ -74,7 +74,7 @@ public interface ArticleMapper extends MyBatisMapper {
       "editer = #{editer,jdbcType=VARCHAR},",
       "`count` = #{count,jdbcType=INTEGER},",
       "count1 = #{count1,jdbcType=INTEGER},",
-      "`flag` = #{flag,jdbcType=VARCHAR},",
+      "`type` = #{type,jdbcType=VARCHAR},",
       "notice = #{notice,jdbcType=VARCHAR},",
       "keywords = #{keywords,jdbcType=VARCHAR}",
     "where id = #{id,jdbcType=INTEGER}"

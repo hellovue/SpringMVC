@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.github.spring.base.mapper.OauthClientTokenMapper">
   <resultMap id="BaseResultMap" type="org.github.spring.base.entity.OauthClientTokenEntity">
-  <id column="token_id" jdbcType="VARCHAR" property="tokenId" />
+  <result column="token_id" jdbcType="VARCHAR" property="tokenId" />
   <result column="authentication_id" jdbcType="VARCHAR" property="authenticationId" />
   <result column="user_name" jdbcType="VARCHAR" property="userName" />
   <result column="client_id" jdbcType="VARCHAR" property="clientId" />
@@ -197,24 +197,6 @@
     <include refid="Update_By_Example_Where_Clause" />
   </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="org.github.spring.base.blob.OauthClientTokenWithBLOBs">
-  update sampledb.oauth_client_token
-  <set>
-    <if test="authenticationId != null">
-    authentication_id = #{authenticationId,jdbcType=VARCHAR},
-    </if>
-    <if test="userName != null">
-    user_name = #{userName,jdbcType=VARCHAR},
-    </if>
-    <if test="clientId != null">
-    client_id = #{clientId,jdbcType=VARCHAR},
-    </if>
-    <if test="token != null">
-    token = #{token,jdbcType=LONGVARBINARY},
-    </if>
-  </set>
-  where token_id = #{tokenId,jdbcType=VARCHAR}
-  </update>
   <insert id="batchInsert" parameterType="list">
   <choose>
     <when test="list != null and list.size != 0">
@@ -274,6 +256,9 @@
        update sampledb.oauth_client_token
       <set>
       <trim suffixOverrides=",">
+        <if test="item.tokenId != null">
+        token_id = #{item.tokenId,jdbcType=VARCHAR},
+        </if>
         <if test="item.authenticationId != null">
         authentication_id = #{item.authenticationId,jdbcType=VARCHAR},
         </if>
@@ -286,9 +271,7 @@
       </trim>
       </set>
       <where>
-      <trim suffixOverrides=",">
-        token_id = #{item.tokenId,jdbcType=VARCHAR},
-      </trim>
+      <trim suffixOverrides="," />
       </where>
     </foreach>
     </when>
@@ -304,6 +287,9 @@
        update sampledb.oauth_client_token
       <set>
       <trim suffixOverrides=",">
+        <if test="item.tokenId != null">
+        token_id = #{item.tokenId,jdbcType=VARCHAR},
+        </if>
         <if test="item.authenticationId != null">
         authentication_id = #{item.authenticationId,jdbcType=VARCHAR},
         </if>
@@ -319,9 +305,7 @@
       </trim>
       </set>
       <where>
-      <trim suffixOverrides=",">
-        token_id = #{item.tokenId,jdbcType=VARCHAR},
-      </trim>
+      <trim suffixOverrides="," />
       </where>
     </foreach>
     </when>
@@ -437,6 +421,9 @@
   from sampledb.oauth_client_token
   <where>
     <trim suffixOverrides=",">
+    <if test="record.tokenId != null">
+      token_id = #{record.tokenId,jdbcType=VARCHAR},
+    </if>
     <if test="record.authenticationId != null">
       authentication_id = #{record.authenticationId,jdbcType=VARCHAR},
     </if>
@@ -457,6 +444,9 @@
   from sampledb.oauth_client_token
   <where>
     <trim suffixOverrides=",">
+    <if test="record.tokenId != null">
+      token_id = #{record.tokenId,jdbcType=VARCHAR},
+    </if>
     <if test="record.authenticationId != null">
       authentication_id = #{record.authenticationId,jdbcType=VARCHAR},
     </if>
@@ -466,16 +456,6 @@
     <if test="record.clientId != null">
       client_id = #{record.clientId,jdbcType=VARCHAR},
     </if>
-    </trim>
-  </where>
-  </select>
-  <select id="selectByPrimaryKeyWithoutBLOBs" parameterType="org.github.spring.base.key.OauthClientTokenKey" resultMap="BaseResultMap">
-  select
-  <include refid="Base_Column_List" />
-  from sampledb.oauth_client_token
-  <where>
-    <trim suffixOverrides=",">
-    token_id = #{key.tokenId,jdbcType=VARCHAR},
     </trim>
   </where>
   </select>

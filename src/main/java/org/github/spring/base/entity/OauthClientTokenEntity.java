@@ -6,17 +6,20 @@ package org.github.spring.base.entity;
 
 import java.io.Serializable;
 import lombok.EqualsAndHashCode;
-import org.github.spring.base.key.OauthClientTokenKey;
+import org.github.spring.footstone.AbstractEntity;
 
 /**
  * OauthClientTokenEntity [ sampledb.oauth_client_token ].
  *
  * @author MyBatisGenerator
- * @version 2017-09-21
+ * @version 2017-10-14
  */
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("serial")
-public class OauthClientTokenEntity extends OauthClientTokenKey implements Serializable {
+public class OauthClientTokenEntity extends AbstractEntity implements Serializable {
+  /** token_id [ oauth_client_token.token_id ]. */
+  private String tokenId;
+
   /** authentication_id [ oauth_client_token.authentication_id ]. */
   private String authenticationId;
 
@@ -25,6 +28,35 @@ public class OauthClientTokenEntity extends OauthClientTokenKey implements Seria
 
   /** client_id [ oauth_client_token.client_id ]. */
   private String clientId;
+
+  /**
+   * GET token_id [ oauth_client_token.token_id ].
+   *
+   * @return java.lang.String
+   */
+  public String getTokenId() {
+    return tokenId;
+  }
+
+  /**
+   * WITH token_id [ oauth_client_token.token_id ].
+   *
+   * @param tokenId java.lang.String
+   * @return org.github.spring.base.entity.OauthClientTokenEntity
+   */
+  public OauthClientTokenEntity withTokenId(String tokenId) {
+    this.setTokenId(tokenId);
+    return this;
+  }
+
+  /**
+   * SET token_id [ oauth_client_token.token_id ].
+   *
+   * @param tokenId java.lang.String
+   */
+  public void setTokenId(String tokenId) {
+    this.tokenId = tokenId == null ? null : tokenId.trim();
+  }
 
   /**
    * GET authentication_id [ oauth_client_token.authentication_id ].
