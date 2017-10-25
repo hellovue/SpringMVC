@@ -5,7 +5,7 @@ def logDir = "logs"
 def byDay = "%d{yyyy-MM-dd}"
 appender("STDOUT", ConsoleAppender) {
     encoder(PatternLayoutEncoder) {
-        pattern = "%d | %highlight(%-5level) | %boldYellow(%11.11thread) | %boldGreen(%25.25logger{5}) ---- %msg%n"
+        pattern = "%d | %highlight(%5level) | %boldYellow(%11.11thread) | %boldGreen(%25.25logger{5}) ---- %msg%n"
     }
 }
 appender("BACK", RollingFileAppender) {
@@ -17,7 +17,7 @@ appender("BACK", RollingFileAppender) {
         totalSizeCap = FileSize.valueOf("10MB")
     }
     encoder(PatternLayoutEncoder) {
-        pattern = "%d |%11.11thread| %-5level %25.25logger{5} - %msg%n"
+        pattern = "%d |%11.11thread| %5level %25.25logger{5} - %msg%n"
     }
 }
 root(ALL, ["STDOUT"])

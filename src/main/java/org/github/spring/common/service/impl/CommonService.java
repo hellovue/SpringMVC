@@ -1,11 +1,12 @@
 package org.github.spring.common.service.impl;
 
+import java.util.Date;
+
+import javax.annotation.Resource;
+
 import org.github.spring.common.base.Service;
 import org.github.spring.common.dao.CommonDao;
 import org.github.spring.common.service.ICommonService;
-
-import javax.annotation.Resource;
-import java.util.Date;
 
 /**
  * CommonService.
@@ -13,11 +14,11 @@ import java.util.Date;
  * @author JYD_XL
  */
 public abstract class CommonService extends Service implements ICommonService {
-    @Resource
-    private CommonDao commonDao;
+  @Resource
+  private transient CommonDao commonDao;
 
-    @Override
-    public Date getNow() {
-        return commonDao.getNow();
-    }
+  @Override
+  public Date getNow() {
+    return commonDao.getNow();
+  }
 }

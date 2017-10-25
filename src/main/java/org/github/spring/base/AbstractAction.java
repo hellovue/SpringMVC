@@ -8,6 +8,4 @@ import org.github.spring.footstone.AbstractSpringComponent;
  *
  * @author JYD_XL
  */
-public abstract class AbstractAction extends AbstractSpringComponent implements CodeIndex {
-    //TODO generate excel...
-}
+public abstract class AbstractAction extends AbstractSpringComponent implements CodeIndex {}
